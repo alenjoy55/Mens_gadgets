@@ -13,7 +13,6 @@ def shop_login(req):
     if 'user' in req.session:
         return redirect(user_home)
     else:
-
         if req.method=='POST':
             uname=req.POST['uname']
             password=req.POST['password']
@@ -38,10 +37,10 @@ def shop_logout(req):
 
 def register(req):
     if req.method=='POST':
-        name=req.POST['username']
+        name=req.POST['uname']
         email=req.POST['email']
         password=req.POST['password']
-        send_mail('e_shop registration', 'e_shop account created', settings.EMAIL_HOST_USER, [email])
+        # send_mail('e_shop registration', 'e_shop account created', settings.EMAIL_HOST_USER, [email])
 
         try:
             data=User.objects.create_user(first_name=name,username=email,email=email,password=password)
