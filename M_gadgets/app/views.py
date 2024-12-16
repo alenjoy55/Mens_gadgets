@@ -52,8 +52,51 @@ def register(req):
 
     else:
         return render(req,'register.html')
-        
+# ------------admin---------------------------  
 def shop_home(req):
-        return render(req,'shop/shop_home.html')
+    if 'shop' in req.session:
+        product=Product.objects.all()
+        return render(req,'shop/shop_home.html',{'products':product})
+    else:
+        return render(shop_login)
+    # return render(req,'shop/shop_home.html')
+def add_product(req):
+    if req.method=='POST':
+        id=req.POST['pro_id']
+        name=req.POST['name']
+        price=req.POST['price']
+        description=req.POST['description']
+        # highlight=req.POST['highlight']
+        offer_price=req.POST['offer_price']
+        file=req.FILES['img']
+        data=Product.objects.create(product_id=id,name=name,price=price,description=description,offer_price=offer_price,img=file)
+        data.save()
+    return render(req,'shop/add_product.html')
+def edit_product(req,id):
+    Pro=Product.objects.get(pk=id)
+    if req.method=='POST':
+        e_id=req.POST['pro_id']
+        name=req.POST['name']
+        price=req.POST['price']
+        description=req.POST['description']
+        offer_price=req.POST['offer_price']
+        file=req.FILES.get('img')
+        print(file)
+        if file:
+            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,description=description,offer_price=offer_price,img=file)
+        else:
+            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,description=description,offer_price=offer_price)
+            return redirect(shop_home)
+    return render(req,'shop/edit_product.html',{'data':Pro})
+# ------------user-----------------------
 def user_home(req):
     return render(req,'user/user_home.html')
+def view_product(req,id):
+    log_user=User.objects.get(username=req.session['user'])
+    product=Product.objects.get(pk=id)
+    try:
+        cart=Cart.objects.get(product=product,user=log_user)
+    except:
+        cart=None
+    return render(req,'user/view_pro.html',{'product':product,'cart':cart})
+    # return render(req,'user/view_product.html')
