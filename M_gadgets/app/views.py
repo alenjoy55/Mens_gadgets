@@ -60,6 +60,7 @@ def shop_home(req):
     else:
         return render(shop_login)
     # return render(req,'shop/shop_home.html')
+
 def add_product(req):
     if req.method=='POST':
         id=req.POST['pro_id']
@@ -72,6 +73,7 @@ def add_product(req):
         data=Product.objects.create(product_id=id,name=name,price=price,description=description,offer_price=offer_price,img=file)
         data.save()
     return render(req,'shop/add_product.html')
+
 def edit_product(req,id):
     Pro=Product.objects.get(pk=id)
     if req.method=='POST':
@@ -80,17 +82,36 @@ def edit_product(req,id):
         price=req.POST['price']
         description=req.POST['description']
         offer_price=req.POST['offer_price']
-        file=req.FILES.get('img')
-        print(file)
-        if file:
-            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,description=description,offer_price=offer_price,img=file)
+        img=req.FILES.get('img')
+        # print(file)
+        if img:
+            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,description=description,offer_price=offer_price,)
+            data=Product.objects.get(pk=id)
+            data.img=img
+            data.save()
         else:
             Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,description=description,offer_price=offer_price)
             return redirect(shop_home)
     return render(req,'shop/edit_product.html',{'data':Pro})
+
+def delete_product(req,id):
+    data=Product.objects.get(pk=id)
+    file=data.img.url
+    file=file.split('/')[-1]
+    os.remove('media/'+file)
+    data.delete()
+    return redirect(shop_home)
+
+def bookings(req):
+    
+    return render(req,'shop/bookings.html')
 # ------------user-----------------------
 def user_home(req):
-    return render(req,'user/user_home.html')
+    if 'user' in req.session:
+        product=Product.objects.all()
+        return render(req,'user/user_home.html',{'products':product})
+    # return render(req,'user/user_home.html')
+
 def view_product(req,id):
     log_user=User.objects.get(username=req.session['user'])
     product=Product.objects.get(pk=id)
