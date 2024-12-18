@@ -112,6 +112,13 @@ def user_home(req):
         return render(req,'user/user_home.html',{'products':product})
     # return render(req,'user/user_home.html')
 
+# def view_product(req,pid):
+#     if 'user' in req.session:
+#         data=Product.objects.get(pk=pid)
+#         return render(req,'user/view_product.html',{'product': data})
+#     else:
+#         return render(req,'user/home.html')
+    
 def view_product(req,id):
     log_user=User.objects.get(username=req.session['user'])
     product=Product.objects.get(pk=id)
@@ -119,5 +126,54 @@ def view_product(req,id):
         cart=Cart.objects.get(product=product,user=log_user)
     except:
         cart=None
-    return render(req,'user/view_pro.html',{'product':product,'cart':cart})
+    return render(req,'user/view_product.html',{'product':product,'cart':cart})
+
+
+# def view_product(req,id):
+#     log_user=User.objects.get(username=req.session['user'])
+#     product=Product.objects.get(pk=id)
+#     try:
+#         cart=Cart.objects.get(product=product,user=log_user)
+#     except:
+#         cart=None
+#     return render(req,'user/view_pro.html',{'product':product,'cart':cart})
     # return render(req,'user/view_product.html')
+
+def add_cart(req,pid):
+    Products=Product.objects.get(pk=pid)
+    print(Products)
+    user=User.objects.get(username=req.session['user'])
+    print(user)
+    data=Cart.objects.create(user=user,product=Products)
+    data.save()
+    return redirect(cart_display)
+
+def cart_display(req):
+    log_user=User.objects.get(username=req.session['user'])
+    data=Cart.objects.filter(user=log_user)
+    return render(req,'user/cart_display.html',{'data':data})
+
+def cart_delete(req,id):
+    data=Cart.objects.get(pk=id)
+    data.delete()
+    return redirect(cart_display)
+
+def contact(req):
+    if req.method == 'POST':
+        name = req.POST['name']
+        email = req.POST['email']
+        phone = req.POST['phone']
+        message = req.POST['message']
+        try:
+            data = Contact.objects.create(
+                name=name,
+                email=email,
+                phone=phone,
+                message=message
+            )
+            data.save()
+            return render(req, 'user/contact.html')
+        except Exception as e:
+            return render(req,'user/contact.html')
+    
+    return render(req,'user/contact.html')
