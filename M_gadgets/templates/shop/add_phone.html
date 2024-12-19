@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD PRODUCT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: #000000;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #c42323;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="background: linear-gradient(180deg, #0b0c3b, #4c49a0);position:relative">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="navbar-brand" href="">
+              <img src="{% static 'img/m_gadgets.logo.jpg' %}" alt="" style="width: 100px;height: 55px;">
+            </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop_home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="add_pro">Add Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="add_phone">Add Phone</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="add_accessories">Add Accessories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="view_booking">View Bookings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>    
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Add Phone</h2>
+    <form method="post" action="" enctype="multipart/form-data" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="brand" class="form-label">Product Name</label>
+            <input type="text" id="brand" name="brand" class="form-control" placeholder="Enter Product Name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" id="price" name="price" class="form-control" placeholder="Enter Price" required>
+        </div>
+        <div class="col-md-6">
+            <label for="offer_price" class="form-label">Offer Price</label>
+            <input type="number" id="offer_price" name="offer_price" class="form-control" placeholder="Enter Offer Price" required>
+        </div>
+        <div class="col-12">
+          <label for="specifications" class="form-label">Specifications</label>
+          <textarea id="specifications" name="specifications" class="form-control" rows="3" placeholder="Enter Specifications" required></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="img" class="form-label">Product Image</label>
+            <input type="file" id="img" name="img" class="form-control" required>
+        </div>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Add Phone</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

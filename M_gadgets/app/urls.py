@@ -16,6 +16,10 @@ urlpatterns=[
     path('add_cart/<pid>',views.add_cart),
     path('cart_display',views.cart_display),
     path('delete_cart/<id>',views.cart_delete),
+    path('add_phone',views.add_phone),
+    path('buy/<id>',views.buy_pro),
+    path('about',views.about),  
+
 
 
 ]

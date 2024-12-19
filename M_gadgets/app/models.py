@@ -25,3 +25,11 @@ class Contact(models.Model):
     email=models.EmailField()
     phone=models.IntegerField()
     message=models.TextField()
+
+class Phone(models.Model):
+    # brand = models.TextField()
+    name = models.TextField()
+    price = models.IntegerField()
+    offer_price = models.IntegerField()
+    specifications = models.TextField(default="Not specified")
+    img=models.FileField()
