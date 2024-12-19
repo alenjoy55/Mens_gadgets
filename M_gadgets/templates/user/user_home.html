@@ -8,6 +8,37 @@
     <title>Product Carousel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        footer{
+            font-family: FFDINforPuma, Inter, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+          }
+    
+          footer a{
+          text-decoration: none;
+          color: rgb(162, 162, 162);
+          font-size: small;
+          }
+          footer h6{
+          font-weight: bold;
+          }
+          footer  a:hover{
+          color: white;
+          }
+          footer svg:hover{
+              color: white;
+          }
+          footer img{
+          padding: 5px;
+          margin-bottom: 5px;
+          }
+
+        @media (max-width: 576px) {
+            .navbar-nav {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -27,7 +58,7 @@
                 <li class="nav-item"><a class="nav-link" href="cart_display">Add_cart</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Filter</a></li>
                 <li class="nav-item"><a class="nav-link" href="view_booking">Bookings</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="logout" class="nav-link">Logout</a></li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -38,90 +69,94 @@
         </div>
     </div>
 </nav>
+<section id="billboard" class="bg-light-blue py-5" style="background: linear-gradient(180deg,white, black);">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- First Slide (Already Active) -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h1 class="text-uppercase text-dark pb-4">Your Products Are Great.</h1>
+                            <a href="#" class="btn btn-dark text-uppercase">Shop Product</a>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="{% static 'img/Mens-Accessories.jpg' %}" alt="Banner" class="img-fluid" style="width: 100%; height: 200px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- Carousel Section -->
-<div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <!-- First Item -->
-        <div class="carousel-item active">
-            <img src="{% static 'img/Mens-Accessories.jpg' %}" class="d-block w-100" alt="Product 1" style="width: 100%; height: 300px;>
-            <div class="carousel-caption d-none d-md-block">
-                <h5>New Arrival - Accessories</h5>
-                <p>Shop the latest collection of Mens Accessories.</p>
+            <!-- Second Slide (New Image) -->
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h1 class="text-uppercase text-dark pb-4">Explore Latest Trends.</h1>
+                            <a href="#" class="btn btn-dark text-uppercase">Shop Now</a>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="{% static 'img/bags combo.jpg' %}" alt="New Banner" class="img-fluid" style="width: 100%; height: 200px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h1 class="text-uppercase text-dark pb-4">Explore Latest Trends.</h1>
+                            <a href="#" class="btn btn-dark text-uppercase">Shop Now</a>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="{% static 'img/gift.jpeg' %}" alt="New Banner" class="img-fluid" style="width: 100%; height: 200px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Second Item -->
-        <div class="carousel-item">
-            <img src="{% static 'img/gift.jpeg' %}" class="d-block w-100" alt="Product 2" style="width: 100%; height: 300px;">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Brand New Gift Collections</h5>
-                <p>Get ready for the Mens Gifts season with our new arrivals.</p>
-            </div>
-        </div>
-        <!-- Third Item -->
-        <div class="carousel-item">
-            <img src="{% static 'img/bags combo.jpg' %}" class="d-block w-100" alt="Product 3" style="width: 100%; height: 300px;>
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Exclusive Combo Bags</h5>
-                <p>Stylish and comfortable Bag combo.</p>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
-<!-- Grid Section (optional) -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <a href="#">
-                <img src="{% static 'img/Fashion-2018.jpg' %}" alt="New Sports Wear" class="img-fluid" style="height: 300px;">
-                <h5>NEW Money HOLDER</h5>
-                <p>$999</p>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<div class="container py-5" style="margin-top: 25px;">
+    <div class="row g-4">
+        {% for pro in products %}
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <a href="view_product/{{pro.pk}}" style="text-decoration: none;">
+                <div class="card h-100 shadow">
+                    <img src="{{pro.img.url}}" class="card-img-top" alt="{{pro.name}}" style="height: 300px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{pro.name}}</h5>
+                        <p class="card-text">{{pro.price}}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <a href="../add_cart/{{pro.pk}}" class="btn btn-outline-dark d-flex align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-plus me-2" viewBox="0 0 16 16">
+                                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                            </svg>Add to Cart
+                        </a>
+                        <a href="../buy/{{pro.pk}}" class="btn btn-outline-dark d-flex align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag me-2" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                            </svg>Buy Now
+                        </a>
+                    </div>
+                </div>
             </a>
         </div>
-        <div class="col-md-3 mb-4">
-            <a href="#">
-                <img src="{% static 'img/menschain.jpg' %}" alt="Brand New School Collections" class="img-fluid" style="height: 300px;">
-                <h5>BRAND NEW MENS CHAIN</h5>
-                <p>$4,000</p>
-            </a>
-        </div>
-        <div class="col-md-3 mb-4">
-            <a href="#">
-                <img src="{% static 'img/foico_512.webp' %}" alt="New Casual Wears" class="img-fluid" style="height: 300px;">
-                <h5>NEW MENS AIRPODS</h5>
-                <p>$8,000</p>
-            </a>
-        </div>
-        <div class="col-md-3 mb-4">
-            <a href="#">
-                <img src="{% static 'img/mensspec.jpg' %}" alt="New Soccer Collection" class="img-fluid" style="height: 300px;">
-                <h5>NEW MENS SPECS</h5>
-                <p>$6,500</p>
-            </a>
-        </div>
+        {% endfor %}
     </div>
 </div>
-{% for pro in products %}
-<div class="carousel-item {% if loop.first %}active{% endif %}">
-    <img src="{{ pro.img.url }}" class="d-block w-100" alt="{{ pro.name }}">
-    <div class="carousel-caption d-none d-md-block">
-        <h5>{{ pro.name }}</h5>
-        <p>{{ pro.description }}</p>
-    </div>
-</div>
-{% endfor %}
-
-
 </body>
 </html>
 
@@ -132,97 +167,3 @@
 
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"> <img src="{% static 'img/m_gadgets.logo.jpg' %}" alt="" style="height: 100px;"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="../">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cart_display">Add_cart</a>
-              </li>    
-              <li class="nav-item">
-                <a class="nav-link" href="">Filter</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="view_booking">Bookings</a>
-              </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a href="logout" class="nav-link">Logout</a>
-            </li>
-            </ul>
-            <ul class="navbar-nav me-auto">
-                <form action="" class="d-flex ">
-                    <input type="text" class="form-control me-1 srch" placeholder="Search">
-                </form>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <div class="container">
-      <div class="row">
-          {% for pro in products %}
-          <div class="col-lg-4">
-            <a href="view_product/{{pro.pk}}">
-              <div class="card">
-                  <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="width:100%;height: 300px;">
-                  <div class="card-body">
-                    <h4 class="card-title">{{pro.name}}</h4>
-                    <p class="card-text">{{pro.price}}</p>
-                    <p class="card-text">{{pro.offer_price}}</p>
-                  </div>
-              </div>
-            </a>
-          </div>
-          
-          {% endfor %}
-      </div>
-    </div>
-    <div class="container">
-      <div class="grid">
-          <div class="g2">
-              <a href=""><img src="{% static 'img/fashion.2018.jpg' %}" alt="" width="100%" height="300px"></a>
-              <h5>NEW SPORTS WEAR</h5>
-              <P>7,500$</P>
-          </div>
-          <div class="g2">
-              <a href=""><img src="img/" alt="" width="100%" height="300px"></a>
-              <h5>BRAND NEW SCHOOL COLLECTIONS</h5>
-              <p>4,000$</p>
-          </div>
-          <div class="g2">
-              <a href=""><img src="img/" alt="" width="100%" height="300px"></a>
-              <h5>NEW CASUAL WEARS</h5>
-              <P>8,000$</P>
-          </div>
-          <div class="g2">
-              <a href=""><img src="img/" alt="" width="100%" height="300px"></a>
-              <h5>NEW SOCCER COLLECTION</h5>
-              <P>6,500$</P>
-          </div>
-      </div>
-  </div>
-</body>
-</html> -->
