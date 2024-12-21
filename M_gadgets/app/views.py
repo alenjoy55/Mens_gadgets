@@ -207,3 +207,32 @@ def buy_pro(req,id):
     data=Buy.objects.create(user=user,product=product,price=price)
     data.save()
     return redirect(user_home)
+
+def user_view_booking(req):
+    user=User.objects.get(username=req.session['user'])
+    data=Buy.objects.filter(user=user)
+    return render(req,'user/view_booking.html',{'data':data})
+
+
+def add_accessories(req):
+    if 'shop' in req.session:
+        if req.method=='POST':
+            accessory_id=req.POST['accessory_id']
+            name=req.POST['name']
+            brand=req.POST['brand']
+            color=req.POST['color']
+            description=req.POST['description']
+            price=req.POST['price']
+            offer_price=req.POST['offer_price']
+            stock=req.POST['stock']
+            warranty=req.POST['warranty']
+            img=req.FILES['img']
+            accessory=Accessories(accessory_id=accessory_id,name=name,brand=brand,color=color,
+                                  description=description,price=price,offer_price=offer_price,
+                                  stock=stock,warranty=warranty,img=img)
+            accessory.save()
+            return redirect(shop_home)
+        else:
+            return render(req,'shop/add_accessories.html')
+    else:
+        return redirect(shop_login)

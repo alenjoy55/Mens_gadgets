@@ -19,6 +19,8 @@ urlpatterns=[
     path('add_phone',views.add_phone),
     path('buy/<id>',views.buy_pro),
     path('about',views.about),  
+    path('add_accessories',views.add_accessories),
+    path('view_booking',views.user_view_booking),
 
 
 

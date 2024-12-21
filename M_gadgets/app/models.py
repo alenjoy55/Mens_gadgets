@@ -33,3 +33,17 @@ class Phone(models.Model):
     offer_price = models.IntegerField()
     specifications = models.TextField(default="Not specified")
     img=models.FileField()
+
+class Accessories(models.Model):
+    accessory_id = models.TextField()
+    name = models.TextField()           
+    brand = models.TextField()                
+    description = models.TextField()                  
+    price = models.IntegerField()
+    offer_price = models.IntegerField()
+    color = models.TextField()
+    stock = models.IntegerField()
+    warranty = models.TextField()
+    img=models.FileField()
+    created_at = models.DateTimeField(auto_now_add=True)  
+    updated_at = models.DateTimeField(auto_now=True)
