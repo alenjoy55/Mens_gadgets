@@ -10,7 +10,7 @@
 </head>
 <style>
     .row{
-        background-color: rgb(60, 54, 54);
+        background-color: rgb(250, 249, 249);
         color: white;
     }
     .btn{
@@ -39,7 +39,10 @@
                         <a class="nav-link" href="../add_cart">Add_Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Filter</a>
+                        <a class="nav-link" href="order">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout">Logout</a>
@@ -57,7 +60,7 @@
                 <p>price:{{i.price}}</p>
                 <p>Date:{{i.date}}</p>
                 <a href="cart_display" class="btn btn-primary">Cart</a>
-                <a href="delete_cart" class="btn btn-primary">Delete</a>
+                <a href="buy" class="btn btn-primary">Buy</a>
             </div>
             {% endfor %}
         </div>

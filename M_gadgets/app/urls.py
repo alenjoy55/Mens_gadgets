@@ -20,7 +20,10 @@ urlpatterns=[
     path('buy/<id>',views.buy_pro),
     path('about',views.about),  
     path('add_accessories',views.add_accessories),
-    path('view_booking',views.user_view_booking),
+    # path('view_booking',views.user_view_booking),
+    path('order',views.bookings),
+    path('cancel_order/<pid>',views.cancel_order),
+    path('seller',views.seller),
 
 
 

@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import Product, Order, OrderItem
+
+
 # Create your views here.
 def shop_login(req):
     if 'shop' in req.session:
@@ -55,6 +58,9 @@ def register(req):
     
 def about(req):
     return render(req,'about.html')
+
+def seller(req):
+    return render(req,'user/seller.html')
 
 # ------------admin---------------------------  
 def shop_home(req):
@@ -213,6 +219,12 @@ def user_view_booking(req):
     data=Buy.objects.filter(user=user)
     return render(req,'user/view_booking.html',{'data':data})
 
+# def bookings(req):
+#     user=User.objects.get(username=req.session['user'])
+#     buy=Buy.objects.filter(user=user)[::-1]
+#     return render(req,'user/order.html',{'bookings':buy})
+
+
 
 def add_accessories(req):
     if 'shop' in req.session:
@@ -236,3 +248,13 @@ def add_accessories(req):
             return render(req,'shop/add_accessories.html')
     else:
         return redirect(shop_login)
+
+def bookings(req):
+    user=User.objects.get(username=req.session['user'])
+    buy=Buy.objects.filter(user=user)[::-1]
+    return render(req,'user/order.html',{'bookings':buy})
+
+def cancel_order(req,pid):
+    data =Buy.objects.get(pk=pid)
+    data.delete()
+    return redirect( user_view_booking)  
