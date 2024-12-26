@@ -11,6 +11,7 @@
     <style>
         body {
     font-family: Arial, sans-serif;
+    background-color: #fffbfb;
     /* background-color: rgb(74, 69, 69); */
 }
 
@@ -117,6 +118,118 @@ h1.text-uppercase {
 .text-dark {
     color: #333 !important;
 }
+
+/* .container-fluid {
+    padding: 30px 15px;  
+    text-align: center;  
+} */
+
+
+h4 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 30px; 
+}
+
+
+ .row {
+    display: flex;
+    justify-content:left;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-wrap: wrap;  
+}
+
+
+/* .col-md-2 {
+    padding: 0 10px;  
+    margin-bottom: 20px; 
+}
+
+.col-md-2 img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.col-md-2 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+
+@media (max-width: 768px) {
+    .col-md-2 {
+        width: 48%;  
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-2 {
+        width: 100%; 
+    }
+} */ */
+
+/* .row {
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+} */
+.scroll{
+    background-color: rgb(241, 240, 240);
+    width: 100%;
+    height: 600px;
+    display: flex;
+    overflow: auto;
+    transition-delay: 0.5s;
+  }
+  div.scroll {
+    background-color: rgb(29, 28, 28);
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+    height: 500px;
+    width: 100%;
+    
+  }
+  
+  div.scroll img {
+    padding: 10px;
+    height: 97%;
+    width: 100%;
+  }
+/* Container for scrolling images */
+.scroll {
+    display: flex;
+    overflow-x: auto;  /* Allows horizontal scrolling */
+    white-space: nowrap;  /* Prevents wrapping of the images */
+    gap: 15px;  /* Adds space between images */
+    padding: 10px 0;  /* Adds vertical padding */
+}
+
+/* Styling each image inside the scroll container */
+.scroll img {
+    height: 150px; /* Set a consistent height for all images */
+    width: auto;  /* Maintain aspect ratio of images */
+    border-radius: 8px;  /* Optional: rounded corners for the images */
+    transition: transform 0.3s ease;  /* Smooth zoom effect */
+}
+
+/* Hover effect for images */
+.scroll img:hover {
+    transform: scale(1.1);  /* Slight zoom effect */
+}
+
+/* Make the images responsive on smaller screens */
+@media (max-width: 768px) {
+    .scroll img {
+        height: 120px;  /* Smaller height for smaller screens */
+    }
+}
+
         footer{
             font-family: FFDINforPuma, Inter, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             display: flex;
@@ -262,8 +375,33 @@ h1.text-uppercase {
                 </div>
             </a>
         </div>
+
         {% endfor %}
     </div>
+</div>
+<div class="container container-fluid my-5">
+    <h4>The Best Of Mens Gadgets</h4>
+   <div class="row">
+       <div class="col-md-2 mt-2">
+           <img width="100%" height="100%" src="{% static 'img/shaving.webp' %}" alt="">
+       </div>
+       <div class="col-md-2 mt-2">
+           <img width="100%" height="100%" src="{% static 'img/psp.webp' %}" alt="">
+        </div>
+       <div class="col-md-2 mt-2">
+           <img width="100%" height="100%" src="{% static 'img/smw.webp' %}" alt="">
+       </div>
+       <div class="col-md-2 mt-2">
+           <img width="100%" height="100%" src="{% static 'img/mlugage.webp' %}" alt="">
+       </div>
+</div>
+</div>
+<div class="scroll">
+    <img src="{% static 'img/ring.webp' %}" alt="">
+    <img src="{% static 'img/headphone.webp' %}" alt="">
+    <img src="{% static 'img/echo.webp' %}" alt="">
+    <img src="{% static 'img/2.webp' %}" alt="">
+    
 </div>
 
 
