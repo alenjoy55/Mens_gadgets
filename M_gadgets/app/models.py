@@ -7,7 +7,6 @@ class Product(models.Model):
     price=models.IntegerField()
     offer_price=models.IntegerField()
     description=models.TextField()
-    # highlight=models.TextField()
     img=models.FileField()
 
 class Cart(models.Model):
