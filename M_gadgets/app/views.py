@@ -104,8 +104,8 @@ def edit_product(req,id):
             return redirect(shop_home)
     return render(req,'shop/edit_product.html',{'data':Pro})
 
-def delete_product(req,id):
-    data=Product.objects.get(pk=id)
+def delete_product(req,pid):
+    data=Product.objects.get(pk=pid)
     file=data.img.url
     file=file.split('/')[-1]
     os.remove('media/'+file)
@@ -116,24 +116,10 @@ def bookings(req):
        bookings=Buy.objects.all()[::-1][:2]
        print(bookings)
        return render(req,'shop/bookings.html',{'data':bookings})
-def add_phone(req):
-    if 'shop' in req.session:
-        if req.method=='POST':
-            name=req.POST['name']
-            price=req.POST['price']
-            offer_price=req.POST['offer_price']
-            specifications=req.POST['specifications']
-            img=req.FILES['img']
-            phone=Phone(name=name,price=price,offer_price=offer_price,
-                        specifications=specifications,img=img)
-            phone.save()
-            return redirect(shop_home)
-        else:
-            return render(req,'shop/add_phone.html')
-    else:
-        return redirect(shop_login)
-def add_accessories(req):
-    return render(req,'shop/accessories.html')
+def admin_cancel_order(req,pid):
+    data =Buy.objects.get(pk=pid)
+    data.delete()
+    return redirect(bookings) 
 # ------------user-----------------------
 def user_home(req):
     if 'user' in req.session:
