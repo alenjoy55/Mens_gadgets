@@ -112,6 +112,7 @@ def delete_product(req,pid):
     data.delete()
     return redirect(shop_home)
 
+
 def bookings(req):
        bookings=Buy.objects.all()[::-1][:2]
        print(bookings)

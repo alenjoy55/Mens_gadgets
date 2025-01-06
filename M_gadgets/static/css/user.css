@@ -4,7 +4,8 @@
   }
   .main-header{
     /* background-color: purple; */
-    background: linear-gradient(180deg, #0b0c3b, #4c49a0);
+    background: linear-gradient(180deg, black, black);
+    color: white;
     margin-top: 0%;
   }
   #mainMenu li > a {
