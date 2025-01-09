@@ -201,10 +201,10 @@ def buy_pro(req,id):
     data.save()
     return redirect(user_home)
 
-def user_view_booking(req):
-    user=User.objects.get(username=req.session['user'])
-    data=Buy.objects.filter(user=user)
-    return render(req,'user/view_booking.html',{'data':data})
+# def user_view_booking(req):
+#     user=User.objects.get(username=req.session['user'])
+#     data=Buy.objects.filter(user=user)
+#     return render(req,'user/view_booking.html',{'data':data})
 
 # def bookings(req):
 #     user=User.objects.get(username=req.session['user'])
@@ -212,7 +212,7 @@ def user_view_booking(req):
 #     return render(req,'user/order.html',{'bookings':buy})
 
 
-def bookings(req):
+def user_bookings(req):
     user=User.objects.get(username=req.session['user'])
     buy=Buy.objects.filter(user=user)[::-1]
     return render(req,'user/order.html',{'bookings':buy})

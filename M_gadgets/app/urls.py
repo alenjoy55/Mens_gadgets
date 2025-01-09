@@ -10,7 +10,7 @@ urlpatterns=[
     path('add_product',views.add_product),
     path('edit_product/<id>',views.edit_product),
     path('delete_pro/<pid>',views.delete_product),
-    path('bookings',views.bookings),
+    path('view_bookings',views.bookings),
      path('admin_cancel_order/<pid>',views.admin_cancel_order),
     path('view_product/<id>',views.view_product),
     path('contact',views.contact),
@@ -20,7 +20,7 @@ urlpatterns=[
     path('delete_cart/<id>',views.cart_delete),
     path('buy/<id>',views.buy_pro),
     path('about',views.about),  
-    path('order',views.bookings),
+    path('order',views.user_bookings),
     path('cancel_order/<pid>',views.cancel_order),
     path('seller',views.seller),
 

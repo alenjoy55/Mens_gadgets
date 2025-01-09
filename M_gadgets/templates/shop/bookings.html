@@ -9,36 +9,40 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/boots"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"> <img src="{% static 'img/m_gadgets.logo.jpg' %}" alt="" style="height: 100px;"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="../">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Products</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="add_product">Add Product</a>
-              </li>     -->
-              <li class="nav-item">
-                <a class="nav-link" href="">Filter</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="bookings">Bookings</a>
-              </li> -->
-            <li class="nav-item">
-                <a href="logout" class="nav-link">Logout</a>
-            </li>
-            </ul>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="background: linear-gradient(180deg, #0b0c3b, #4c49a0);">
+    <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="">
+                        <img src="{% static 'img/m_gadgets.logo.jpg' %}" alt="" style="height: 50px;">
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="add_product">Add Product</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href=""></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href=""></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="view_bookings">View Bookings</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="logout">Logout</a>
+                </li>    
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+  </nav>
     <div class="container py-5">
         <div class="row g-4 align-items-center">
             {% for i in data %}
