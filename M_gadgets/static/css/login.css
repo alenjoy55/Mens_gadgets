@@ -1,98 +1,93 @@
-/* General page styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
 }
 
-/* Container for login form */
+/* Login Container */
 .login {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  text-align: center;
+  color: #333;
 }
 
-/* Header */
-h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 400px;
-    
+/* Form Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Alert for messages */
-.alert {
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 1rem;
+.login-form label {
+  font-size: 14px;
+  margin: 10px 0 5px;
+  text-align: left;
 }
 
-/* Input fields styling */
 .input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.input:focus {
-    border-color: #5c6bc0;
-    outline: none;
-}
-
-/* Submit button */
 .btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #5c6bc0;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
+  background-color: #2575fc;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #3f51b5;
+  background-color: #6a11cb;
 }
 
-/* Register link button */
+/* Register Button */
 .btn1 {
-    display: block;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #42a5f5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #2575fc;
 }
 
 .btn1:hover {
-    background-color: #2196f3;
+  color: #6a11cb;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .login {
-        padding: 20px;
-        width: 80%;
-    }
-    h2 {
-        font-size: 1.8rem;
-    }
-    .btn, .btn1 {
-        font-size: 1rem;
-    }
+/* Alert Messages */
+.alert {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.alert-danger {
+  background-color: #e74c3c;
+}
+
+.alert-dismissible .btn-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  float: right;
+  cursor: pointer;
 }

@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Product, Order, OrderItem
 
 
 # Create your views here.
@@ -103,7 +102,6 @@ def edit_product(req,id):
             Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,description=description,offer_price=offer_price)
             return redirect(shop_home)
     return render(req,'shop/edit_product.html',{'data':Pro})
-
 def delete_product(req,pid):
     data=Product.objects.get(pk=pid)
     file=data.img.url
@@ -111,7 +109,6 @@ def delete_product(req,pid):
     os.remove('media/'+file)
     data.delete()
     return redirect(shop_home)
-
 
 def bookings(req):
        bookings=Buy.objects.all()[::-1][:2]
@@ -144,17 +141,14 @@ def view_product(req,id):
         cart=None
     return render(req,'user/view_product.html',{'product':product,'cart':cart})
 
-
-# def view_product(req,id):
-#     log_user=User.objects.get(username=req.session['user'])
-#     product=Product.objects.get(pk=id)
-#     try:
-#         cart=Cart.objects.get(product=product,user=log_user)
-#     except:
-#         cart=None
-#     return render(req,'user/view_pro.html',{'product':product,'cart':cart})
-    # return render(req,'user/view_product.html')
-
+# def view_product(req,pid):
+#     if 'user' in req.session:
+#         data=Product.objects.get(pk=pid)
+#         relate=Product.objects.all()
+#         return render(req,'user/view_product.html',{'product': data,'relate':relate})
+#     else:
+#         return render(req,'user/home.html')
+    
 def add_cart(req,pid):
     Products=Product.objects.get(pk=pid)
     print(Products)
